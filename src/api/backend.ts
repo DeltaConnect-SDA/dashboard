@@ -25,7 +25,7 @@ publicAPI.interceptors.response.use(
  });
 
 export const authAPI = axios.create({
-    baseURL: `${import.meta.env.REACT_APP_API_BASE_URL}v1/auth/dashboard`,
+    baseURL: `${process.env.REACT_APP_API_BASE_URL}v1/auth/dashboard`,
     withCredentials: true,
     headers: {
         "Content-Type": 'application/json'

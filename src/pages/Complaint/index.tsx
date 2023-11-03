@@ -178,7 +178,7 @@ function Complaint() {
                   <TableCell>
                     <img
                       src={item.ComplaintImages[0].path}
-                      className="rounded object-cover"
+                      className="rounded object-cover max-w-[50px]"
                     />
                   </TableCell>
                   <TableCell className="truncate max-w-xs 2xl:max-w-none">

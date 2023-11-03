@@ -84,16 +84,6 @@ const router = createBrowserRouter([
     // errorElement: <Error />,
   },
   {
-    path: "/pengguna",
-    element: (
-      <AuthGuard
-        AllowedRoles={[Roles.AUTHORIZER, Roles.SUPER_ADMIN]}
-        Component={Complaint}
-      />
-    ),
-    errorElement: <Error />,
-  },
-  {
     path: "/login",
     element: <Login />,
     errorElement: <Error />,

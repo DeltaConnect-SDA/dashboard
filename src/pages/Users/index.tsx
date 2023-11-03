@@ -42,6 +42,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui";
+import { useAuth } from "@/context/AuthProvider";
+import Roles from "@/config/Roles";
 
 const formatter = buildFormatter(idStrings);
 
@@ -113,6 +115,7 @@ const Users = () => {
       message: null,
     },
   });
+  const { authState } = useAuth();
 
   const handleSearch = async () => {
     setIsLoading(true);
@@ -323,7 +326,7 @@ const Users = () => {
 
   useEffect(() => {
     handleSearch();
-    handleRolesSearch();
+    if (authState.role === Roles.SUPER_ADMIN) handleRolesSearch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -670,7 +673,7 @@ const Users = () => {
           <TabGroup>
             <TabList>
               <Tab>Pengguna</Tab>
-              <Tab>Role</Tab>
+              {authState.role === Roles.SUPER_ADMIN && <Tab>Role</Tab>}
               <Tab>Permintaan Verifikasi</Tab>
             </TabList>
             <TabPanels>
@@ -1108,6 +1111,7 @@ const Users = () => {
                   </Flex>
                 </Card>
               </TabPanel>
+
               <TabPanel>
                 <Card className="mt-6">
                   <Flex

@@ -2,7 +2,7 @@ import { logout } from "@/context/AuthProvider";
 import axios from "axios";
 
 export const publicAPI = axios.create({
-    baseURL: process.env.VITE_API_BASE_URL,
+    baseURL: process.env.VITE_API_BASE_URL || "https://deltaconnect.morph.my.id/",
     withCredentials: true,
     headers: {
         "Content-Type": 'application/json'
@@ -25,7 +25,7 @@ publicAPI.interceptors.response.use(
  });
 
 export const authAPI = axios.create({
-    baseURL: `${process.env.VITE_API_BASE_URL}v1/auth/dashboard`,
+    baseURL: `${process.env.VITE_API_BASE_URL || "https://deltaconnect.morph.my.id/"}v1/auth/dashboard`,
     withCredentials: true,
     headers: {
         "Content-Type": 'application/json'

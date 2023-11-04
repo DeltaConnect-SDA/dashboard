@@ -816,7 +816,8 @@ const ComplaintDetails = () => {
               </Col>
               <Col>
                 {authState.role === Roles.SUPER_ADMIN ||
-                  (data.assignToId !== authState.userId && (
+                  data.assignToId !== authState.userId ||
+                  (!data.assignToid && (
                     <Card className="mb-6">
                       <Subtitle className="mb-4">
                         <Bold>Diteruskan Oleh</Bold>

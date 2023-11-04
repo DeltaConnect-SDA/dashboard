@@ -815,26 +815,25 @@ const ComplaintDetails = () => {
                 )}
               </Col>
               <Col>
-                <Card
-                  className={`mb-6 ${
-                    authState.role === Roles.SUPER_ADMIN && "hidden"
-                  }`}
-                >
-                  <Subtitle className="mb-4">
-                    <Bold>Diteruskan Oleh</Bold>
-                  </Subtitle>
-                  <p>
-                    <Bold>
-                      {handleLastForward(data)?.user?.role.name || null}
-                    </Bold>
-                  </p>
-                  <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-2">
-                    <ReaderIcon width={30} />
-                    <p className="text-sm">
-                      {handleLastForward(data)?.notes || null}
-                    </p>
-                  </div>
-                </Card>
+                {authState.role === Roles.SUPER_ADMIN ||
+                  (data.assignToId !== authState.userId && (
+                    <Card className="mb-6">
+                      <Subtitle className="mb-4">
+                        <Bold>Diteruskan Oleh</Bold>
+                      </Subtitle>
+                      <p>
+                        <Bold>
+                          {handleLastForward(data)?.user?.role.name || null}
+                        </Bold>
+                      </p>
+                      <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-2">
+                        <ReaderIcon width={30} />
+                        <p className="text-sm">
+                          {handleLastForward(data)?.notes || null}
+                        </p>
+                      </div>
+                    </Card>
+                  ))}
                 <Card className="mb-6">
                   <Title className="mb-6 pb-4 border-b">
                     <Bold>Respon Laporan</Bold>

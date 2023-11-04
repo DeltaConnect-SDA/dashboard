@@ -718,12 +718,18 @@ const ComplaintDetails = () => {
                       <Badge
                         size="xs"
                         style={{
-                          color: Colors.PRIMARY_GREEN,
-                          backgroundColor: Colors.SECONDARY_GREEN,
+                          color: data.user.UserDetail.isVerified
+                            ? Colors.PRIMARY_GREEN
+                            : Colors.PRIMARY_RED,
+                          backgroundColor: data.user.UserDetail.isVerified
+                            ? Colors.SECONDARY_GREEN
+                            : Colors.SECONDARY_RED,
                         }}
                         className="ml-2"
                       >
-                        Terverifikasi
+                        {data.user.UserDetail.isVerified
+                          ? "Terverifikasi"
+                          : "Belum Verifikasi"}
                       </Badge>
                     </Text>
                     <Text>

@@ -819,15 +819,15 @@ const ComplaintDetails = () => {
                   data.assignToId !== authState.userId ||
                   (!data.assignToid && (
                     <Card className="mb-6">
-                      <Subtitle className="mb-4">
+                      <Title className="mb-6 pb-4 border-b">
                         <Bold>Diteruskan Oleh</Bold>
-                      </Subtitle>
+                      </Title>
                       <p>
                         <Bold>
                           {handleLastForward(data)?.user?.role.name || null}
                         </Bold>
                       </p>
-                      <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-[4px]">
+                      <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-[8px]">
                         <ReaderIcon width={30} />
                         <p className="text-sm">
                           {handleLastForward(data)?.notes || null}

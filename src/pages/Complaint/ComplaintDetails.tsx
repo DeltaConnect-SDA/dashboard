@@ -815,9 +815,9 @@ const ComplaintDetails = () => {
                 )}
               </Col>
               <Col>
-                {authState.role === Roles.SUPER_ADMIN ||
-                  data.assignToId !== authState.userId ||
-                  (!data.assignToid && (
+                {authState.role !== Roles.SUPER_ADMIN &&
+                  data.assignToId &&
+                  data.assignTo.type === authState.role && (
                     <Card className="mb-6">
                       <Title className="mb-6 pb-4 border-b">
                         <Bold>Diteruskan Oleh</Bold>
@@ -834,7 +834,7 @@ const ComplaintDetails = () => {
                         </p>
                       </div>
                     </Card>
-                  ))}
+                  )}
                 <Card className="mb-6">
                   <Title className="mb-6 pb-4 border-b">
                     <Bold>Respon Laporan</Bold>

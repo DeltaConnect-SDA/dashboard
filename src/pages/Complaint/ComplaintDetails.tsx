@@ -826,7 +826,7 @@ const ComplaintDetails = () => {
                           {handleLastForward(data)?.user?.role.name || null}
                         </Bold>
                       </p>
-                      <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-2">
+                      <div className="p-2 border rounded-lg inline-flex gap-2 items-center mt-[4px]">
                         <ReaderIcon width={30} />
                         <p className="text-sm">
                           {handleLastForward(data)?.notes || null}

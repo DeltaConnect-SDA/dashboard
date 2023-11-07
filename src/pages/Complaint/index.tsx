@@ -234,11 +234,10 @@ function Complaint() {
                       <Button
                         variant="secondary"
                         color="zinc"
-                        // icon={}
+                        icon={MixerHorizontalIcon}
                         size="xs"
                       >
-                        <MixerHorizontalIcon />
-                        {/* Lihat Detail */}
+                        Lihat Detail
                       </Button>
                     </Link>
                   </TableCell>

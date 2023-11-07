@@ -1099,7 +1099,7 @@ const ComplaintDetails = () => {
                               htmlFor="bukti-foto-selesai"
                               className="mb-1 block text-sm font-medium text-gray-700"
                             >
-                              Tambahkan Bukti Foto (opsional)
+                              Tambahkan Bukti Foto
                             </label>
                             <input
                               required

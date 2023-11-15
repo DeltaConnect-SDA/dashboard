@@ -28,7 +28,7 @@ export default function DashboardPage() {
 
   const handleAnalytics = async () => {
     try {
-      const response = await publicAPI.get("v1/analytics/complaints");
+      const response = await publicAPI.get("analytics/complaints");
 
       const { data } = response.data;
 

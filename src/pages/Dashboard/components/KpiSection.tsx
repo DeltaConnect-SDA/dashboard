@@ -76,7 +76,7 @@ const KPISection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const handleKpi = async () => {
     try {
-      const response = await publicAPI.get("v1/analytics/kpi");
+      const response = await publicAPI.get("analytics/kpi");
 
       const { data } = response.data;
       setIsLoading(false);

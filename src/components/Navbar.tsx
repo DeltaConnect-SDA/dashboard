@@ -12,7 +12,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState(true);
   const handleProfile = async () => {
     try {
-      const response = await publicAPI.get("v1/auth/profile");
+      const response = await publicAPI.get("auth/profile");
       const data = response.data;
 
       setData(data);

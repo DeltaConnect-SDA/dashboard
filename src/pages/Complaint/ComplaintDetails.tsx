@@ -101,7 +101,7 @@ const ComplaintDetails = () => {
   const handleData = async () => {
     setIsLoading(true);
     await publicAPI
-      .get(`v1/complaints/${id}/dashboard`)
+      .get(`complaints/${id}/dashboard`)
       .then((res) => {
         const { data } = res.data;
         setData(data);
@@ -118,7 +118,7 @@ const ComplaintDetails = () => {
 
   const handleStatus = async () => {
     await publicAPI
-      .get(`v1/complaints/${id}/status`)
+      .get(`complaints/${id}/status`)
       .then((res) => {
         const { data } = res.data;
         setStatus(data);
@@ -131,7 +131,7 @@ const ComplaintDetails = () => {
   const handleOfficers = async () => {
     setIsLoading(true);
     try {
-      const response = await publicAPI.get(`v1/users/officers`);
+      const response = await publicAPI.get(`users/officers`);
       const { data } = response.data;
       setOfficers(data);
       setIsLoading(false);
@@ -143,7 +143,7 @@ const ComplaintDetails = () => {
   const handleVerify = async () => {
     setResponseLoading(true);
     try {
-      const response = await publicAPI.patch(`v1/complaints/verify`, {
+      const response = await publicAPI.patch(`complaints/verify`, {
         id,
         notes,
       });
@@ -185,7 +185,7 @@ const ComplaintDetails = () => {
   const handleForward = async () => {
     setResponseLoading(true);
     try {
-      const response = await publicAPI.patch(`v1/complaints/assign`, {
+      const response = await publicAPI.patch(`complaints/assign`, {
         id,
         roleId: officer,
         notes,
@@ -243,15 +243,11 @@ const ComplaintDetails = () => {
     formData.append("notes", notes);
 
     try {
-      const response = await publicAPI.patch(
-        `v1/complaints/decline`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await publicAPI.patch(`complaints/decline`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       const { success } = response.data;
       console.log(response.data);
@@ -306,15 +302,11 @@ const ComplaintDetails = () => {
     formData.append("notes", notes);
 
     try {
-      const response = await publicAPI.patch(
-        `v1/complaints/process`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await publicAPI.patch(`complaints/process`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       const { success } = response.data;
       console.log(response.data);
@@ -371,15 +363,11 @@ const ComplaintDetails = () => {
     formData.append("notes", notes);
 
     try {
-      const response = await publicAPI.patch(
-        `v1/complaints/complete`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await publicAPI.patch(`complaints/complete`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       const { success } = response.data;
       console.log(response.data);

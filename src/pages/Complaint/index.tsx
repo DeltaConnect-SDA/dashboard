@@ -53,7 +53,7 @@ function Complaint() {
 
   // const handleData = async () => {
   //   try {
-  //     const response = await publicAPI.get("v1/complaints/dashboard");
+  //     const response = await publicAPI.get("complaints/dashboard");
   //     const { data } = response.data;
   //     setData(data);
   //     console.log(data, "1");
@@ -68,7 +68,7 @@ function Complaint() {
 
   const getCategories = async () => {
     try {
-      const response = await publicAPI.get("v1/categories");
+      const response = await publicAPI.get("categories");
       const { data } = response.data;
       setCategories(data);
       console.log(data, "categories");
@@ -83,7 +83,7 @@ function Complaint() {
 
   const getPriorities = async () => {
     try {
-      const response = await publicAPI.get("v1/priorities");
+      const response = await publicAPI.get("priorities");
       const { data } = response.data;
       setPriorities(data);
       console.log(data, "priorities");
@@ -98,7 +98,7 @@ function Complaint() {
 
   const getStatuses = async () => {
     try {
-      const response = await publicAPI.get("v1/statuses");
+      const response = await publicAPI.get("statuses");
       const { data } = response.data;
       console.log(data, "statuses");
 
@@ -126,7 +126,7 @@ function Complaint() {
       };
       console.log(params);
 
-      const response = await publicAPI.get("v1/complaints/search/dashboard", {
+      const response = await publicAPI.get("complaints/search/dashboard", {
         params,
       });
       const { data } = response.data;
@@ -488,6 +488,7 @@ function Complaint() {
               <Select
                 onValueChange={(order) => setOrderBy(order)}
                 placeholder="Urutkan Berdasarkan"
+                defaultValue="desc"
               >
                 <SelectItem
                   defaultChecked

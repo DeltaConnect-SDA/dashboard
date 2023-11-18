@@ -14,7 +14,9 @@ import {
   Error,
   ComplaintDetails,
   Users,
+  SuggestionDetails,
 } from "./pages";
+import Suggestion from "./pages/Suggestion";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +71,34 @@ const router = createBrowserRouter([
           Roles.TECHNICAL_EXECUTOR,
         ]}
         Component={ComplaintDetails}
+      />
+    ),
+    // errorElement: <Error />,
+  },
+  {
+    path: "/usulan",
+    element: (
+      <AuthGuard
+        AllowedRoles={[
+          Roles.AUTHORIZER,
+          Roles.SUPER_ADMIN,
+          Roles.TECHNICAL_EXECUTOR,
+        ]}
+        Component={Suggestion}
+      />
+    ),
+    // errorElement: <Error />,
+  },
+  {
+    path: "/usulan/:id",
+    element: (
+      <AuthGuard
+        AllowedRoles={[
+          Roles.AUTHORIZER,
+          Roles.SUPER_ADMIN,
+          Roles.TECHNICAL_EXECUTOR,
+        ]}
+        Component={SuggestionDetails}
       />
     ),
     // errorElement: <Error />,

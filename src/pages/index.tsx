@@ -6,6 +6,7 @@ import NotFound from "./NotFound";
 import Error from "./Error";
 import ComplaintDetails from "./Complaint/ComplaintDetails";
 import Users from "./Users";
+import SuggestionDetails from "./Suggestion/SuggestionDetails";
 
 export {
   Forbidden,
@@ -16,4 +17,5 @@ export {
   Error,
   ComplaintDetails,
   Users,
+  SuggestionDetails,
 };
